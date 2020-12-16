@@ -1,5 +1,5 @@
 {
-    "name": "rawilk/laravel-printing",
+    "name": "noamanahmed/laravel-printing",
     "description": "Direct printing for Laravel apps",
     "keywords": [
         "rawilk",
@@ -22,7 +22,7 @@
         }
     ],
     "require": {
-        "php": "^7.4",
+        "php": "^7.3",
         "ext-json": "*",
         "illuminate/support": "^6.0|^7.0|^8.0",
         "mike42/escpos-php": "^3.0",
