@@ -10,10 +10,10 @@ use Rawilk\Printing\Exceptions\InvalidSource;
 
 abstract class PrintTask implements PrintTaskContract
 {
-    protected string $jobTitle = '';
-    protected array $options = [];
-    protected string $content = '';
-    protected string $printSource;
+    protected $jobTitle = '';
+    protected $options = [];
+    protected $content = '';
+    protected $printSource;
 
     /** @var string|mixed */
     protected $printerId;
@@ -23,14 +23,14 @@ abstract class PrintTask implements PrintTaskContract
         $this->printSource = config('app.name');
     }
 
-    public function content($content): self
+    public function content($content)
     {
         $this->content = $content;
 
         return $this;
     }
 
-    public function file(string $filePath): self
+    public function file($filePath)
     {
         if (! file_exists($filePath)) {
             throw InvalidSource::fileNotFound($filePath);
@@ -41,7 +41,7 @@ abstract class PrintTask implements PrintTaskContract
         return $this;
     }
 
-    public function url(string $url): self
+    public function url($url)
     {
         if (! preg_match('/^https?:\/\//', $url)) {
             throw InvalidSource::invalidUrl($url);
@@ -52,14 +52,14 @@ abstract class PrintTask implements PrintTaskContract
         return $this;
     }
 
-    public function jobTitle(string $jobTitle): self
+    public function jobTitle($jobTitle)
     {
         $this->jobTitle = $jobTitle;
 
         return $this;
     }
 
-    public function printer($printerId): self
+    public function printer($printerId)
     {
         if ($printerId instanceof Printer) {
             $printerId = $printerId->id();
@@ -70,7 +70,7 @@ abstract class PrintTask implements PrintTaskContract
         return $this;
     }
 
-    public function printSource(string $printSource): self
+    public function printSource($printSource)
     {
         $this->printSource = $printSource;
 
@@ -80,7 +80,7 @@ abstract class PrintTask implements PrintTaskContract
     /**
      * Not all drivers may support tagging jobs.
      */
-    public function tags($tags): self
+    public function tags($tags)
     {
         return $this;
     }
@@ -88,7 +88,7 @@ abstract class PrintTask implements PrintTaskContract
     /**
      * Not all drivers may support this feature.
      */
-    public function tray($tray): self
+    public function tray($tray)
     {
         return $this;
     }
@@ -96,12 +96,12 @@ abstract class PrintTask implements PrintTaskContract
     /**
      * Not all drivers might support this option.
      */
-    public function copies(int $copies): self
+    public function copies(int $copies)
     {
         return $this;
     }
 
-    public function option(string $key, $value): self
+    public function option(string $key, $value)
     {
         $this->options[$key] = $value;
 

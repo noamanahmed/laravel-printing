@@ -6,19 +6,19 @@ use Illuminate\Support\Collection;
 
 interface Printer
 {
-    public function capabilities(): array;
+    public function capabilities();
 
-    public function description(): ?string;
+    public function description();
 
     public function id();
 
-    public function isOnline(): bool;
+    public function isOnline();
 
-    public function name(): ?string;
+    public function name();
 
-    public function status(): string;
+    public function status();
 
-    public function trays(): array;
+    public function trays();
 
-    public function jobs(): Collection;
+    public function jobs();
 }

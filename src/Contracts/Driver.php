@@ -6,9 +6,9 @@ use Illuminate\Support\Collection;
 
 interface Driver
 {
-    public function newPrintTask(): PrintTask;
+    public function newPrintTask();
 
-    public function find($printerId = null): ?Printer;
+    public function find($printerId = null);
 
-    public function printers(): Collection;
+    public function printers();
 }
